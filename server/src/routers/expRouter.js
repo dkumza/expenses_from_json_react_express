@@ -25,9 +25,8 @@ expRouter.get("/api/exp", (req, res) => {
    });
 });
 
-// POST - /api/exp/:add - add new expenses
+// POST - /api/exp/ - add new expenses
 expRouter.post("/api/exp/", (req, res) => {
-   console.log(req.body);
    const newExpenses = {
       id: uuidv4(),
       cat: req.body.cat,
@@ -36,6 +35,19 @@ expRouter.post("/api/exp/", (req, res) => {
    const exitingData = JSON.parse(fs.readFileSync(filePath, "utf-8"));
    exitingData.push(newExpenses);
    fs.writeFileSync(filePath, JSON.stringify(exitingData));
+});
+
+// DELETE - /api/exp/:ID - delete by id
+expRouter.delete("/api/exp/:id", (req, res) => {
+   const expenseID = req.params.id;
+   let exitingData = JSON.parse(fs.readFileSync(filePath, "utf-8"));
+   const expExists = exitingData.find((exp) => exp.id === expenseID);
+   if (expExists) {
+      fs.writeFileSync(
+         filePath,
+         JSON.stringify(exitingData.filter((exp) => exp.id !== expenseID))
+      );
+   }
 });
 
 module.exports = expRouter;

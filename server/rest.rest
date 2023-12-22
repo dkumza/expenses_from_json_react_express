@@ -1,11 +1,11 @@
 ### get all expenses
 GET http://localhost:3003/api/exp
 
-### get Single user
-GET http://localhost:3000/api/users/b60b3fb9-e497-47f2-82b3-00e1a3386bbd
+### get Single expenses
+GET http://localhost:3003/api/exp/1
 
-### del Single user
-DELETE http://localhost:3000/api/users/1
+### del Single expenses
+DELETE http://localhost:3003/api/exp/217d01f2-3429-4a51-8dc7-aa5abe26672c
 
 ### Create expenses
 POST http://localhost:3003/api/exp
@@ -21,7 +21,6 @@ PUT http://localhost:3000/api/users/7e61088e-50bd-49a2-9652-36b487819216
 Content-Type:  application/json
 
 {
-  "name": "UpdatedName",
-  "town": "UpdatedTown",
-  "isDriver": true
+  "cat": "Edited",
+  "amount": 0
 }
