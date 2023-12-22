@@ -13,14 +13,16 @@ Content-Type:  application/json
 
 {
   "cat": "Home",
-  "amount": 3000
+  "amount": 222,
+  "date": "2023-04-04"
 }
 
 ### Edit user
-PUT http://localhost:3003/api/exp/7703f9ec-56c3-4d82-8218-46a3faf50265
+PUT http://localhost:3003/api/exp/116a8c86-4178-435d-ad13-225d17e8c5f0
 Content-Type:  application/json
 
 {
   "cat": "Edited",
-  "amount": 0
+  "amount": 0,
+  "date": "0000-00-00"
 }

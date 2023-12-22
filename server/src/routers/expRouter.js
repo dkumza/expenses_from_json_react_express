@@ -31,6 +31,7 @@ expRouter.post("/api/exp/", (req, res) => {
       id: uuidv4(),
       cat: req.body.cat,
       amount: req.body.amount,
+      date: req.body.date,
    };
    const exitingData = JSON.parse(fs.readFileSync(filePath, "utf-8"));
    exitingData.push(newExpenses);
