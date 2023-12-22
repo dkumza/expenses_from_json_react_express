@@ -35,6 +35,7 @@ expRouter.post("/api/exp/", (req, res) => {
    const exitingData = JSON.parse(fs.readFileSync(filePath, "utf-8"));
    exitingData.push(newExpenses);
    fs.writeFileSync(filePath, JSON.stringify(exitingData));
+   res.status(200).json(exitingData);
 });
 
 // DELETE - /api/exp/:ID - delete by id
@@ -43,11 +44,11 @@ expRouter.delete("/api/exp/:id", (req, res) => {
    let exitingData = JSON.parse(fs.readFileSync(filePath, "utf-8"));
    const expExists = exitingData.find((exp) => exp.id === expenseID);
    if (expExists) {
-      fs.writeFileSync(
-         filePath,
-         JSON.stringify(exitingData.filter((exp) => exp.id !== expenseID))
-      );
+      exitingData = exitingData.filter((exp) => exp.id !== expenseID);
+      fs.writeFileSync(filePath, JSON.stringify(exitingData));
+      res.status(200).json(exitingData);
    }
+   if (!expExists) res.status(404).json({ message: "Delete failed, check ID" });
 });
 
 module.exports = expRouter;

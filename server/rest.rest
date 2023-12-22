@@ -5,7 +5,7 @@ GET http://localhost:3003/api/exp
 GET http://localhost:3003/api/exp/1
 
 ### del Single expenses
-DELETE http://localhost:3003/api/exp/217d01f2-3429-4a51-8dc7-aa5abe26672c
+DELETE http://localhost:3003/api/exp/8bec3e37-83e6-45b5-8f97-4c2b4e227a3e
 
 ### Create expenses
 POST http://localhost:3003/api/exp
