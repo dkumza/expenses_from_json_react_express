@@ -22,6 +22,16 @@ app.get("/", (req, res) => {
 // Expenses Router
 app.use("/", expRouter);
 
+// catch all route 404 case
+app.all("*", (req, res) => {
+   res.status(500).json({
+      url: req.url,
+      msg: "Something went wrong",
+      endpoints: "valid endpoints are at - /api/exp",
+      method: req.method,
+   });
+});
+
 app.listen(port, () => {
    console.log(`server is running http://localhost:${port}`);
 });
