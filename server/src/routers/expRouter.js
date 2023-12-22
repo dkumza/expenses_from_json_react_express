@@ -38,6 +38,24 @@ expRouter.post("/api/exp/", (req, res) => {
    res.status(200).json(exitingData);
 });
 
+// edit - PUT - /api/exp/:ID - edit exiting expense by id
+expRouter.put("/api/exp/:id", (req, res) => {
+   const expenseID = req.params.id;
+   let exitingData = JSON.parse(fs.readFileSync(filePath, "utf-8"));
+   const expExists = exitingData.find((exp) => exp.id === expenseID);
+   const foundIdx = exitingData.findIndex((exp) => exp.id === expenseID);
+
+   if (expExists) {
+      exitingData[foundIdx] = {
+         id: expenseID,
+         ...req.body,
+      };
+      fs.writeFileSync(filePath, JSON.stringify(exitingData));
+      res.status(200).json(exitingData);
+   }
+   if (!expExists) res.status(404).json({ message: "Edit failed, check ID" });
+});
+
 // DELETE - /api/exp/:ID - delete by id
 expRouter.delete("/api/exp/:id", (req, res) => {
    const expenseID = req.params.id;

@@ -17,7 +17,7 @@ Content-Type:  application/json
 }
 
 ### Edit user
-PUT http://localhost:3000/api/users/7e61088e-50bd-49a2-9652-36b487819216
+PUT http://localhost:3003/api/exp/7703f9ec-56c3-4d82-8218-46a3faf50265
 Content-Type:  application/json
 
 {
