@@ -1,4 +1,4 @@
-# Project Title
+# Expenses from JSON file /w Express & React
 
 This project is about creating, reading, and manipulating data from a JSON file. It will be extended to include editing existing data and will be integrated with a React client for DOM manipulation.
 
@@ -10,7 +10,7 @@ This project is about creating, reading, and manipulating data from a JSON file.
 -  add mini validation
 -  etc...
 
-### on client
+#### on client
 
 -  Create front with React
 -  Manipulate DOM with different Endpoints
