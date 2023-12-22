@@ -1,0 +1,52 @@
+[
+    {
+      "id": "217d01f2-3429-4a51-8dc7-aa5abe26672c",
+      "cat": "Home",
+      "amount": 300
+    },
+    {
+      "id": "8bec3e37-83e6-45b5-8f97-4c2b4e227a3e",
+      "cat": "Food",
+      "amount": 200
+    },
+    {
+      "id": "7703f9ec-56c3-4d82-8218-46a3faf50265",
+      "cat": "Transport",
+      "amount": 150
+    },
+    {
+      "id": "b6c513e8-a68a-4897-9f81-f95bb3e92490",
+      "cat": "Entertainment",
+      "amount": 100
+    },
+    {
+      "id": "f984f9b6-7025-4a2c-8d60-90bbdb8faa57",
+      "cat": "Health",
+      "amount": 250
+    },
+    {
+      "id": "8a7fa897-48d7-4aed-815c-3ee12d8b8957",
+      "cat": "Education",
+      "amount": 500
+    },
+    {
+      "id": "bc6525ed-4802-4741-bba1-b4aca29b6249",
+      "cat": "Shopping",
+      "amount": 400
+    },
+    {
+      "id": "5237a6cb-1c22-4d30-99d3-e0c30c16037a",
+      "cat": "Personal Care",
+      "amount": 350
+    },
+    {
+      "id": "097f1da5-9bd6-418a-90d8-eaa88e1058b1",
+      "cat": "Investments",
+      "amount": 600
+    },
+    {
+      "id": "7a24d10d-8c15-4bf0-805a-9dd6263f08ec",
+      "cat": "Gifts",
+      "amount": 450
+    }
+  ]
