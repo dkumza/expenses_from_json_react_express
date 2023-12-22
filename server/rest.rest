@@ -7,14 +7,13 @@ GET http://localhost:3000/api/users/b60b3fb9-e497-47f2-82b3-00e1a3386bbd
 ### del Single user
 DELETE http://localhost:3000/api/users/1
 
-### Create user
-POST http://localhost:3000/api/users
+### Create expenses
+POST http://localhost:3003/api/exp
 Content-Type:  application/json
 
 {
-  "name": "on",
-  "town": "Kazkur",
-  "isDriver": false
+  "cat": "Home",
+  "amount": 3000
 }
 
 ### Edit user
