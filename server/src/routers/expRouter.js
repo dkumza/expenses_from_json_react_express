@@ -29,6 +29,7 @@ expRouter.get("/api/exp", (req, res) => {
 expRouter.post("/api/exp/", (req, res) => {
    const newExpenses = {
       id: uuidv4(),
+      title: req.body.title,
       cat: req.body.cat,
       amount: req.body.amount,
       date: req.body.date,
@@ -36,7 +37,7 @@ expRouter.post("/api/exp/", (req, res) => {
    const exitingData = JSON.parse(fs.readFileSync(filePath, "utf-8"));
    exitingData.push(newExpenses);
    fs.writeFileSync(filePath, JSON.stringify(exitingData));
-   res.status(200).json(exitingData);
+   res.status(201).json(exitingData);
 });
 
 // edit - PUT - /api/exp/:ID - edit exiting expense by id

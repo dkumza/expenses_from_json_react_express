@@ -8,7 +8,7 @@ import { New } from "./components/New";
 function App() {
    return (
       <ExpProvider>
-         <div className="main-wrap container mx-auto 2xl:w-1/5 md:w-2/5 min-h-screen relative">
+         <div className="main-wrap container mx-auto md:w-fit min-h-screen relative">
             <Head />
             <New />
             <Main />

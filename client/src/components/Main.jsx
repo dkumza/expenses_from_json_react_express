@@ -6,8 +6,8 @@ export const Main = () => {
    const { expenses } = useContext(ExpContext);
 
    return (
-      <div className="flex flex-col justify-center md:px-8 px-2">
-         <h1 className="font-semibold py-4">Recent Transactions</h1>
+      <div className="flex flex-col justify-center p-2">
+         <h1 className="font-semibold pb-1">Recent Transactions</h1>
          <div className=" flex flex-col gap-2 ">
             {expenses &&
                expenses.map((exp) => <Expense key={exp.id} exp={exp} />)}
