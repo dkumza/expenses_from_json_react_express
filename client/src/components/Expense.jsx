@@ -20,10 +20,6 @@ export const Expense = ({ exp }) => {
    const iconClass = getIconClass(exp.cat);
 
    return (
-      // <div
-      //    onClick={() => handleEdit(exp.id)}
-      //    className="exp-wrap flex gap-2 py-2 px-2 border justify-between items-center rounded-md border-sky-200 shadow bg-white hover:cursor-pointer hover:bg-yellow-50"
-      // >
       <div className="" onClick={() => handleEdit(exp.id)}>
          <li className="flex items-center border border-gray-200 rounded shadow px-1 py-1 hover:bg-gradient-to-r from-white to-gray-50 shadow-gray-300/50 hover:cursor-pointer">
             <div className="flex justify-center items-center px-3 mr-4 border-r">
@@ -34,12 +30,20 @@ export const Expense = ({ exp }) => {
                <p className="text-xs font-normal text-gray-400">{exp.date}</p>
             </div>
             <div className="text-sm text-gray-400">{exp.title}</div>
-            <div className="ml-auto text-lime-400 pr-4">
-               <h3>{exp.amount} EUR</h3>
+            <div className="ml-auto  pr-4">
+               <h3
+                  className={
+                     exp.amount > 0 && exp.cat === "Salary"
+                        ? "text-lime-400"
+                        : "text-rose-400"
+                  }
+               >
+                  {exp.amount > -1 && exp.cat !== "Salary"
+                     ? -exp.amount
+                     : exp.amount}{" "}
+                  EUR
+               </h3>
             </div>
-            {/* <div className="border-l m-2 px-2 cursor-pointer">
-               <i className="bi bi-x-lg del-btn ml-1"></i>
-            </div> */}
          </li>
       </div>
    );
