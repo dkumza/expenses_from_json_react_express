@@ -11,6 +11,7 @@ export const ExpProvider = ({ children }) => {
    const [amount, setAmount] = useState(0);
    const [title, setTitle] = useState("");
    const [date, setDate] = useState("");
+   const [editing, setEditing] = useState(false);
 
    useEffect(() => {
       axios
@@ -49,10 +50,25 @@ export const ExpProvider = ({ children }) => {
          });
    };
 
+   const handleFormFill = (id) => {
+      const found = expenses.find((exp) => exp.id === id); // if user exists fill input fields
+      setCat(found.cat);
+      setAmount(found.amount);
+      setTitle(found.title);
+      setDate(found.date);
+   };
+
+   const handleEdit = (id) => {
+      console.log("first");
+      handleFormFill(id);
+      setEditing(true);
+   };
+
    return (
       <ExpContext.Provider
          value={{
             submitHandler,
+            handleEdit,
             expenses,
             setExpenses,
             cat,
@@ -63,6 +79,7 @@ export const ExpProvider = ({ children }) => {
             setTitle,
             date,
             setDate,
+            editing,
          }}
       >
          {children}

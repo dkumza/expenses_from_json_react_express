@@ -12,6 +12,7 @@ export const New = () => {
       submitHandler,
       date,
       setDate,
+      editing,
    } = useContext(ExpContext);
 
    return (
@@ -76,9 +77,21 @@ export const New = () => {
                   </label>
                </div>
             </div>
-            <button className="border px-8 py-2 rounded-md bg-gradient-to-r from-sky-400 to-sky-500 text-white hover:bg-gradient-to-b">
-               Submit
-            </button>
+            {!editing && (
+               <button className="border px-8 py-2 rounded-md bg-gradient-to-r from-sky-400 to-sky-500 text-white hover:bg-gradient-to-b">
+                  Submit
+               </button>
+            )}
+            {editing && (
+               <div className="wrap flex gap-2">
+                  <button className="border px-8 py-2 rounded-md bg-gradient-to-r from-lime-400 to-lime-500 text-white hover:bg-gradient-to-b">
+                     Confirm
+                  </button>
+                  <button className="border px-8 py-2 rounded-md bg-gradient-to-r from-rose-400 to-rose-500 text-white hover:bg-gradient-to-b">
+                     Delete
+                  </button>
+               </div>
+            )}
          </form>
       </div>
    );
