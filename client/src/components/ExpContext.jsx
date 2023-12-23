@@ -59,7 +59,6 @@ export const ExpProvider = ({ children }) => {
    };
 
    const handleEdit = (id) => {
-      console.log("first");
       handleFormFill(id);
       setEditing(true);
    };

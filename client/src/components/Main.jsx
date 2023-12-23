@@ -8,7 +8,7 @@ export const Main = () => {
    return (
       <div className="flex flex-col justify-center p-2">
          <h1 className="font-semibold pb-1">Recent Transactions</h1>
-         <div className=" flex flex-col gap-2 ">
+         <div className="flex   flex-col   gap-3 overflow-auto   p-1">
             {expenses &&
                expenses.map((exp) => <Expense key={exp.id} exp={exp} />)}
             {!expenses && <p>No data. Press "New" to add some</p>}
