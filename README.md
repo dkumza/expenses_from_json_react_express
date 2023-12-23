@@ -6,13 +6,13 @@ This project is about creating, reading, and manipulating data from a JSON file.
 
 #### on server:
 
- - ~~- EDIT expenses~~
+-  ~~- EDIT expenses~~
 -  add mini validation
 -  etc...
 
 #### on client
 
--  Create front with React
+-  ~~-Create front with React~~
 -  Manipulate DOM with different Endpoints
 
 ## Structure
