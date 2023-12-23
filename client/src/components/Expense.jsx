@@ -1,6 +1,6 @@
 export const Expense = ({ exp }) => {
    return (
-      <div className="exp-wrap flex gap-2 py-2 px-4 border justify-between items-center rounded-md border-gray-200 shadow">
+      <div className="exp-wrap flex gap-2 py-2 px-4 border justify-between items-center rounded-md border-gray-100 shadow bg-white">
          <div className="left-wrap flex gap-2 items-center">
             <div className="border-r pr-2 py-2 w-20  text-center rounded">
                {exp.cat}

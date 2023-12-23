@@ -7,7 +7,7 @@ import { Main } from "./components/Main";
 function App() {
    return (
       <ExpProvider>
-         <div className="main-wrap container mx-auto md:w-2/5 min-h-screen border relative">
+         <div className="main-wrap container mx-auto 2xl:w-1/5 md:w-2/5 min-h-screen relative">
             <Head />
             <Main />
             <AddNewButton />
