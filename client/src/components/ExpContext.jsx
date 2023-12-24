@@ -38,7 +38,6 @@ export const ExpProvider = ({ children }) => {
          .post(BASE_URL, newExp)
          .then((res) => {
             if (res.status === 201) {
-               console.log(res.data);
                setExpenses(res.data);
                setCat("");
                setAmount("");
@@ -75,7 +74,6 @@ export const ExpProvider = ({ children }) => {
          .put(`${BASE_URL}/${toEdit}`, editExp)
          .then((res) => {
             if (res.status === 200) {
-               console.log(res.data);
                setExpenses(res.data);
                setCat("");
                setAmount("");
@@ -90,7 +88,6 @@ export const ExpProvider = ({ children }) => {
 
    const handleDelete = (e) => {
       e.preventDefault();
-      console.log(toEdit);
       axios
          .delete(`${BASE_URL}/${toEdit}`)
          .then((res) => {

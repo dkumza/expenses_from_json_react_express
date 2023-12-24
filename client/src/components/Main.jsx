@@ -6,9 +6,9 @@ export const Main = () => {
    const { expenses } = useContext(ExpContext);
 
    return (
-      <div className="flex flex-col justify-center p-2 items-center">
+      <div className="flex flex-col justify-center p-2 items-center md:min-w-[720px] w-full">
          <h1 className="font-semibold pb-1">Recent Transactions</h1>
-         <div className="flex   flex-col   gap-3 overflow-auto   p-1 w-3/4">
+         <div className="flex   flex-col   gap-3 overflow-auto   p-1 md:w-3/6 w-full">
             {expenses &&
                expenses.map((exp) => <Expense key={exp.id} exp={exp} />)}
             {!expenses && <p>No data. Press "New" to add some</p>}

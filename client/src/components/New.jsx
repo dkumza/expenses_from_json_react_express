@@ -18,7 +18,7 @@ export const New = () => {
    } = useContext(ExpContext);
 
    return (
-      <div className=" md:pb-4 md:pt-6 p-2">
+      <div className=" md:pb-4 md:pt-6 p-2 min-w-[420px]">
          <form
             className="flex flex-col gap-4 w-full justify-center items-center"
             onSubmit={submitHandler}
