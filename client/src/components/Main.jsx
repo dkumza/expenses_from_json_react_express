@@ -13,7 +13,11 @@ export const Main = () => {
          <div className="flex   flex-col   gap-3 overflow-auto   p-1 w-full">
             {expenses &&
                expenses.map((exp) => <Expense key={exp.id} exp={exp} />)}
-            {!expenses && <p>No data. Press "New" to add some</p>}
+            {!expenses && (
+               <p className="text-center text-gray-400 text-sm uppercase">
+                  No data found. Add more...
+               </p>
+            )}
          </div>
       </div>
    );

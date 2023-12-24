@@ -81,7 +81,7 @@ export const New = () => {
             </div>
             {!editing && (
                <button className="border px-8 py-2 rounded-md bg-gradient-to-r from-sky-400 to-sky-500 text-white hover:bg-gradient-to-b">
-                  Submit
+                  ADD
                </button>
             )}
             {editing && (

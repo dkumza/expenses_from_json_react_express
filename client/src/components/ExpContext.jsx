@@ -19,6 +19,7 @@ export const ExpProvider = ({ children }) => {
       axios
          .get(BASE_URL)
          .then((res) => {
+            if (res.data.length === 0) return;
             setExpenses(res.data);
          })
          .catch((err) => {
@@ -26,11 +27,19 @@ export const ExpProvider = ({ children }) => {
          });
    }, []);
 
+   useEffect(() => {
+      if (expenses) {
+         let totalBalance = expenses.reduce((sum, exp) => sum + exp.amount, 0);
+         setBalance(totalBalance);
+      }
+   }, [expenses, setBalance]);
+
    const submitHandler = (e) => {
       e.preventDefault();
 
       // If cat is not "Salary", make amount negative
-      let finalAmount = cat !== "Salary" ? -Math.abs(amount) : amount;
+      let finalAmount = cat !== "Salary" ? -Math.abs(amount) : parseInt(amount);
+      // setBalance((prevBalance) => balance + finalAmount);
 
       const newExp = {
          cat,
