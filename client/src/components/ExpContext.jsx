@@ -5,15 +5,21 @@ export const ExpContext = createContext();
 
 const BASE_URL = "http://localhost:3003/api/exp";
 
+let today = new Date();
+let todayDate =
+   today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
+
 export const ExpProvider = ({ children }) => {
    const [expenses, setExpenses] = useState(null);
    const [cat, setCat] = useState("Food");
    const [amount, setAmount] = useState(0);
    const [title, setTitle] = useState("");
-   const [date, setDate] = useState("");
+   const [date, setDate] = useState(todayDate);
    const [toEdit, setToEdit] = useState(null);
    const [editing, setEditing] = useState(false);
    const [balance, setBalance] = useState(0);
+   const [positives, setPositives] = useState(0);
+   const [negatives, setNegatives] = useState(0);
 
    useEffect(() => {
       axios
@@ -31,8 +37,26 @@ export const ExpProvider = ({ children }) => {
       if (expenses) {
          let totalBalance = expenses.reduce((sum, exp) => sum + exp.amount, 0);
          setBalance(totalBalance);
+
+         let totalNegatives = expenses.reduce((sum, exp) => {
+            if (exp.cat !== "Salary") {
+               return sum + exp.amount;
+            } else {
+               return sum;
+            }
+         }, 0);
+         setNegatives(totalNegatives);
+
+         let totalPositives = expenses.reduce((sum, exp) => {
+            if (exp.cat === "Salary") {
+               return sum + exp.amount;
+            } else {
+               return sum;
+            }
+         }, 0);
+         setPositives(totalPositives);
       }
-   }, [expenses, setBalance]);
+   }, [expenses, setBalance, negatives, setNegatives, positives, setPositives]);
 
    const submitHandler = (e) => {
       e.preventDefault();
@@ -55,6 +79,7 @@ export const ExpProvider = ({ children }) => {
                setCat("");
                setAmount("");
                setTitle("");
+               setDate(todayDate);
             }
          })
          .catch((err) => {
@@ -136,7 +161,8 @@ export const ExpProvider = ({ children }) => {
             handleSubmitEdit,
             handleDelete,
             balance,
-            setBalance,
+            positives,
+            negatives,
          }}
       >
          {children}
