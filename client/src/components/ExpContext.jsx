@@ -13,6 +13,7 @@ export const ExpProvider = ({ children }) => {
    const [date, setDate] = useState("");
    const [toEdit, setToEdit] = useState(null);
    const [editing, setEditing] = useState(false);
+   const [balance, setBalance] = useState(0);
 
    useEffect(() => {
       axios
@@ -28,9 +29,12 @@ export const ExpProvider = ({ children }) => {
    const submitHandler = (e) => {
       e.preventDefault();
 
+      // If cat is not "Salary", make amount negative
+      let finalAmount = cat !== "Salary" ? -Math.abs(amount) : amount;
+
       const newExp = {
          cat,
-         amount,
+         amount: finalAmount,
          title,
          date,
       };
@@ -122,6 +126,8 @@ export const ExpProvider = ({ children }) => {
             setToEdit,
             handleSubmitEdit,
             handleDelete,
+            balance,
+            setBalance,
          }}
       >
          {children}

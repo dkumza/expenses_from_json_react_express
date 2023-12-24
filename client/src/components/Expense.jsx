@@ -38,9 +38,10 @@ export const Expense = ({ exp }) => {
                         : "text-rose-400"
                   }
                >
-                  {exp.amount > -1 && exp.cat !== "Salary"
-                     ? -exp.amount
-                     : exp.amount}{" "}
+                  {exp.amount}{" "}
+                  {/* {exp.amount > -1 && exp.cat !== "Salary"
+                     ? parseInt(-exp.amount)
+                     : parseInt(exp.amount)}{" "} */}
                   EUR
                </h3>
             </div>
