@@ -13,7 +13,8 @@ This project is about creating, reading, and manipulating data from a JSON file.
 #### on client
 
 -  ~~-Create front with React~~
--  Manipulate DOM with different Endpoints
+-  ~~ Manipulate DOM with different Endpoints ~~
+-  ~~ Show Balance, Income, Spent ~~
 
 ## Structure
 
@@ -26,10 +27,10 @@ The project is divided into two main folders:
 
 The server is built with Express.js and provides the following endpoints:
 
--  `GET /expenses`: Fetches all expenses from the database.
--  `DELETE /expenses/:id`: Deletes a expense with the specified ID from the database.
--  `POST /expenses`: Adds a new expense to the database.
--  `PUT /expenses/:id`: Updates the expense with the specified ID in the database.
+-  `GET /api/exp`: Fetches all expenses from the database.
+-  `DELETE /api/exp/:id`: Deletes a expense with the specified ID from the database.
+-  `POST /api/exp`: Adds a new expense to the database.
+-  `PUT /api/exp/:id`: Updates the expense with the specified ID in the database.
 
 ## Client
 
