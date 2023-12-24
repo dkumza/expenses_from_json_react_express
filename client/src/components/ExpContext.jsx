@@ -11,13 +11,13 @@ export const ExpProvider = ({ children }) => {
    const [amount, setAmount] = useState(0);
    const [title, setTitle] = useState("");
    const [date, setDate] = useState("");
+   const [toEdit, setToEdit] = useState(null);
    const [editing, setEditing] = useState(false);
 
    useEffect(() => {
       axios
          .get(BASE_URL)
          .then((res) => {
-            console.log(res.data);
             setExpenses(res.data);
          })
          .catch((err) => {
@@ -59,8 +59,50 @@ export const ExpProvider = ({ children }) => {
    };
 
    const handleEdit = (id) => {
+      setToEdit(id);
       handleFormFill(id);
       setEditing(true);
+   };
+
+   const handleSubmitEdit = () => {
+      const editExp = {
+         cat,
+         amount,
+         title,
+         date,
+      };
+      axios
+         .put(`${BASE_URL}/${toEdit}`, editExp)
+         .then((res) => {
+            if (res.status === 200) {
+               console.log(res.data);
+               setExpenses(res.data);
+               setCat("");
+               setAmount("");
+               setTitle("");
+               setDate("");
+            }
+         })
+         .catch((err) => {
+            console.warn("ERROR: ", err);
+         });
+   };
+
+   const handleDelete = (e) => {
+      e.preventDefault();
+      console.log(toEdit);
+      axios
+         .delete(`${BASE_URL}/${toEdit}`)
+         .then((res) => {
+            setExpenses(res.data);
+            setCat("");
+            setAmount("");
+            setTitle("");
+            setDate("");
+         })
+         .catch((error) => {
+            console.warn("Error:", error);
+         });
    };
 
    return (
@@ -79,6 +121,10 @@ export const ExpProvider = ({ children }) => {
             date,
             setDate,
             editing,
+            toEdit,
+            setToEdit,
+            handleSubmitEdit,
+            handleDelete,
          }}
       >
          {children}
