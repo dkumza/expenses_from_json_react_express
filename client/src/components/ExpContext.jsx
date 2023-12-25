@@ -35,35 +35,28 @@ export const ExpProvider = ({ children }) => {
 
    useEffect(() => {
       if (expenses) {
-         let totalBalance = expenses.reduce((sum, exp) => sum + exp.amount, 0);
-         setBalance(totalBalance);
+         let totals = expenses.reduce(
+            (acc, exp) => {
+               acc.totalBalance += exp.amount;
+               exp.cat !== "Salary"
+                  ? (acc.totalNegatives += exp.amount)
+                  : (acc.totalPositives += exp.amount);
+               return acc;
+            },
+            { totalBalance: 0, totalNegatives: 0, totalPositives: 0 }
+         );
 
-         let totalNegatives = expenses.reduce((sum, exp) => {
-            if (exp.cat !== "Salary") {
-               return sum + exp.amount;
-            } else {
-               return sum;
-            }
-         }, 0);
-         setNegatives(totalNegatives);
-
-         let totalPositives = expenses.reduce((sum, exp) => {
-            if (exp.cat === "Salary") {
-               return sum + exp.amount;
-            } else {
-               return sum;
-            }
-         }, 0);
-         setPositives(totalPositives);
+         setBalance(totals.totalBalance);
+         setNegatives(totals.totalNegatives);
+         setPositives(totals.totalPositives);
       }
-   }, [expenses, setBalance, negatives, setNegatives, positives, setPositives]);
+   }, [expenses, setBalance, setNegatives, setPositives]);
 
    const submitHandler = (e) => {
       e.preventDefault();
 
       // If cat is not "Salary", make amount negative
       let finalAmount = cat !== "Salary" ? -Math.abs(amount) : parseInt(amount);
-      // setBalance((prevBalance) => balance + finalAmount);
 
       const newExp = {
          cat,
@@ -136,7 +129,7 @@ export const ExpProvider = ({ children }) => {
             setDate("");
          })
          .catch((error) => {
-            console.warn("Error:", error);
+            console.warn("ERROR:", error);
          });
    };
 

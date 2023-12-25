@@ -18,9 +18,12 @@ export const New = () => {
    } = useContext(ExpContext);
 
    return (
-      <div className=" md:pb-4 md:pt-6 p-2 min-w-[420px]">
+      <div className=" md:pb-4 md:pt-6 p-3 min-w-[420px] w-full mt-2">
+         <h1 className="py-2  font-semibold">
+            Fill form to add new transaction
+         </h1>
          <form
-            className="flex flex-col gap-4 w-full justify-center items-center"
+            className="flex flex-col gap-4 w-full justify-center items-center px-1"
             onSubmit={submitHandler}
          >
             <div className="flex gap-2 w-full">
