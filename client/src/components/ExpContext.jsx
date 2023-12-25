@@ -109,7 +109,7 @@ export const ExpProvider = ({ children }) => {
                setCat("");
                setAmount("");
                setTitle("");
-               setDate("");
+               setDate(todayDate);
             }
          })
          .catch((err) => {
@@ -126,11 +126,20 @@ export const ExpProvider = ({ children }) => {
             setCat("");
             setAmount("");
             setTitle("");
-            setDate("");
+            setDate(todayDate);
          })
          .catch((error) => {
             console.warn("ERROR:", error);
          });
+   };
+
+   const handleCancel = (e) => {
+      e.preventDefault();
+      setEditing(false);
+      setCat("");
+      setAmount("");
+      setTitle("");
+      setDate(todayDate);
    };
 
    return (
@@ -156,6 +165,7 @@ export const ExpProvider = ({ children }) => {
             balance,
             positives,
             negatives,
+            handleCancel,
          }}
       >
          {children}
