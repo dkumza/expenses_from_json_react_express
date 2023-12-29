@@ -13,8 +13,8 @@ This project is about creating, reading, and manipulating data from a JSON file.
 #### on client
 
 -  ~~-Create front with React~~
--  ~~ Manipulate DOM with different Endpoints ~~
--  ~~ Show Balance, Income, Spent ~~
+-  ~~Manipulate DOM with different Endpoints~~
+-  ~~Show Balance, Income, Spent~~
 
 ## Structure
 
@@ -36,7 +36,7 @@ The server is built with Express.js and provides the following endpoints:
 
 The client is a React application that provides a user interface for interacting with the server's endpoints. It allows you to view all expenses, delete a expenses, add a new expense and update a expenses's information.
 
-## Installation - client side are not ready
+## Installation
 
 To install the application, follow these steps:
 
@@ -44,7 +44,7 @@ To install the application, follow these steps:
 2. Navigate to the `server` folder and run `npm install` to install the server dependencies.
 3. Navigate to the `client` folder and run `npm install` to install the client dependencies.
 
-## Running the Application - client side are not ready
+## Running the Application
 
 To run the application, follow these steps:
 
